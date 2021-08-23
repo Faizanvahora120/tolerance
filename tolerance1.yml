@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd-pod
+  labels:
+   name: httpd-pod
+spec:
+  containers:
+    - name: httpd-pod
+      image: httpd
+      ports:
+        - containerPort: 80
+  tolerations:
+    - key: "slave1"
+      operator: "Equal"
+      value: "machine1"
+      effect: "NoSchedule"
+...
